@@ -2,21 +2,40 @@
 <html>
 <head>
   <style>
+    .bar-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: 80vh;
+    }
     .bar {
       display: inline-block;
-      width: 20px;
+      width: 5px;
       background-color: #3498db;
       margin: 0 1px;
       vertical-align: bottom;
     }
+    .sort-button {
+        display: inline-block;
+        vertical-align: middle;
+        width: 225px;
+        height: 30px;
+        margin: 10px 0 1px 190px;
+        border-radius: 3px;
+        border: solid 1px rgba(0, 0, 0, 0.25);
+        background-color: #ffffff;
+    }   
+    .sort-button:hover {
+      background-color: #000000;
+      color: #fff;
+    }
   </style>
 </head>
 <body>
-  <button onclick="startBubbleSort()">Start Bubble Sort</button>
-  <button onclick="startSelectionSort()">Start Selection Sort</button>
-  <button onclick="startInsertionSort()">Start Insertion Sort</button>
-  <div id="bars">
-  </div>
+    <button class="sort-button" onclick="startBubbleSort()">버블 정렬</button>
+    <button class="sort-button" onclick="startSelectionSort()">선택 정렬</button>
+    <button class="sort-button" onclick="startInsertionSort()">삽일 정렬</button>
+    <div class="bar-container" id="bars"></div>
 </body>
 <script>
   function sleep(ms) {
@@ -81,23 +100,23 @@
     for (let value of arr) {
       const bar = document.createElement("div");
       bar.className = "bar";
-      bar.style.height = (value * 100 + 200) + "px"; // Adjust the range here
+      bar.style.height = (value * 25 + 5) + "px"; // Adjust the range here
       bars.appendChild(bar);
     }
   }
 
   async function startBubbleSort() {
-    const arr = generateRandomArray(100); // Change the array size here
+    const arr = generateRandomArray(150); // Change the array size here
     await bubbleSort(arr);
   }
 
   async function startSelectionSort() {
-    const arr = generateRandomArray(100); // Change the array size here
+    const arr = generateRandomArray(150); // Change the array size here
     await selectionSort(arr);
   }
 
   async function startInsertionSort() {
-    const arr = generateRandomArray(100); // Change the array size here
+    const arr = generateRandomArray(150); // Change the array size here
     await insertionSort(arr);
   }
 
@@ -110,7 +129,7 @@
   }
 
   window.onload = () => {
-    const arr = generateRandomArray(100); // Change the initial array size here
+    const arr = generateRandomArray(150); // Change the initial array size here
     updateVisualization(arr);
   };
 </script>
