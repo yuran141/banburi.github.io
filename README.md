@@ -1,3 +1,3 @@
 # banburi.github.io
-### Time-Complexity-Visualization
+### github pages
 ---
